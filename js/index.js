@@ -1,35 +1,33 @@
-const todoList = [
-  {
-    "id": 1,
-    "task": "Complete this example",
-    "complete": false 
-  }, {
-    "id": 2,
-    "task": "Order groceries",
-    "complete": true 
-  }, {
-    "id": 3,
-    "task": "Learn about Web Components",
-    "complete": false 
-  }
-]
+import {getJsonData} from './fetch.js'
+import {renderList} from './tasks.js'
 
 
-const loadTaskView = (task) => {
-  return `
-    <li>
-			<input type="checkbox" id="task${task.id} name="todoItem" ${(task.complete) ? `checked` : ``}>
-			<label for="task${task.id}" class="task">${task.task}</label>
-		</li>`
-}
+// ONLY when the interface is loaded, do we go and look for data and render
+window.addEventListener(`load`, (event) => {
 
-// A function that will build an entire list based on an Array of data
-const renderList = (taskAr) => {
-  document.getElementById(`tasks`).innerHTML = taskAr.map(loadTaskView).join('\n')
-}
+  // Go get some data! (Assume some "await" time)
+  const todoList = getJsonData(`http://whatever.com/tasks`)
 
-// Pass the array of data, build the UI
-renderList(todoList)
+  // Pass the array of data, build the UI
+  renderList(todoList)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,6 +46,6 @@ renderList(todoList)
 - Order by priority and completeness
 
 Reminder:
-Compare then() to async/await
-
+- Compare then() to async/await
+- Destructuring
 */
