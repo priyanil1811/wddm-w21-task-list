@@ -1,7 +1,7 @@
 const loadTaskView = ({id, complete, task}) => {
   return `
     <li>
-			<input type="checkbox" id="task${id} name="todoItem" ${(complete) ? `checked` : ``}>
+			<input type="checkbox" id="task${id}" name="todoItem" ${(complete) ? `checked` : ``}>
 			<label for="task${id}" class="task">${task}</label>
 		</li>`
 }
