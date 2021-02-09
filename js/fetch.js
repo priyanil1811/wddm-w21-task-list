@@ -2,7 +2,7 @@ const todoList = [
   {
     "id": 1,
     "task": "Complete this example",
-    "complete": false 
+    "complete": false
   }, {
     "id": 2,
     "task": "Order groceries",
