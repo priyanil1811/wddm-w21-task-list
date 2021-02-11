@@ -4,35 +4,3 @@ body {
   color: #111;
   padding: 1em;
 }
-.tasks {
-  counter-set: todo-items;
-}
-.task {
-  display: block;
-  background-color: #fff;
-  padding: 0.5em;
-  border: 1px solid #666;
-}
-li:not(:first-child) .task {
-  border-top: none;
-}
-
-[type="checkbox"] {
-  display: none;
-}
-
-[type="checkbox"]:checked + .task {
-  text-decoration: line-through;
-  background-color: #eee;
-  color: #666;
-}
-
-[type="checkbox"]:not(:checked) + .task {
-  counter-increment: todo-items;
-}
-
-.tasks::after {
-  content: counter(todo-items) " items";
-  display: block;
-  margin: 1em 0;
-}
