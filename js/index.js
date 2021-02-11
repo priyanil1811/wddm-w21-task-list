@@ -15,7 +15,32 @@ window.addEventListener(`load`, (event) => {
 
   const theListElement = new TaskList(todoList)
   document.getElementById(`app`).appendChild(theListElement)
+
+
+  // Prototype adding a new item to the list
+  theListElement.addNewTask(`Class complete!`)
 })
+
+
+
+// Before Tuesday:
+// - Turn the <form> into a Web Component that when the form is submit, a new task is added
+// - Practice DOM methods, but adding the item to the top of the list instead of the bottom 
+// - Style the form, make it look pretty
+
+
+
+
+
+/*
+// LAB:
+
+Modify the way that a TaskList adds <task-item> elements, using the `new TaskItem()` style syntax to pass an task object (or the properties separately) to the class definition.
+
+Class will resume at 2:20
+*/
+
+
 
 
 

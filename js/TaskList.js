@@ -12,6 +12,9 @@ export const renderList = (taskAr) => {
  */
 
 export default class TaskList extends HTMLElement {
+
+  list = null
+
   constructor(todoList) {
     super()
 
@@ -27,16 +30,31 @@ export default class TaskList extends HTMLElement {
     this.root.appendChild(eleStyle)
 
     // Build an empty list
-    const eleList = document.createElement(`ul`)
+    this.list = document.createElement(`ul`)
 
-    // Add all of the <task-item> elements to the empty list
+/*    // Add all of the <task-item> elements to the empty list
     const loadTaskView = ({id, complete, task}) => {
       return `<task-item data-id="${id}" data-complete="${complete}" data-task="${task}"></task-item>`
     }
     eleList.innerHTML = todoList.map(loadTaskView).join(`\n`)
-    this.root.appendChild(eleList)
+*/
+    todoList.forEach((item) => {
+      const aTask = new TaskItem(item)
+      aTask.addEventListener('taskChanged', event => {console.log('Task Complete?', aTask.complete)})
+      this.list.appendChild(aTask)
+    })
+
+    this.root.appendChild(this.list)
 
   }
+
+  addNewTask(name) {
+    // Figure out what the next available id is
+    const aTask = new TaskItem({id:4, task:name, complete:false})
+    aTask.addEventListener('taskChanged', event => {console.log('Task Complete?', aTask.complete)})
+    this.list.appendChild(aTask)
+  }
+
 }
 
 window.customElements.define(`task-list`, TaskList)
