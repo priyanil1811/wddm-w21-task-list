@@ -52,7 +52,7 @@ export default class TaskList extends HTMLElement {
     // Figure out what the next available id is
     const aTask = new TaskItem({id:4, task:name, complete:false})
     aTask.addEventListener('taskChanged', event => {console.log('Task Complete?', aTask.complete)})
-    this.list.appendChild(aTask)
+    this.list.prepend(aTask)
   }
 
 }
