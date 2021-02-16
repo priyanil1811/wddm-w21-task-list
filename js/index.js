@@ -14,10 +14,12 @@ window.addEventListener(`load`, (event) => {
 
   // document.getElementById(`app`).innerHTML = `<task-list></task-list>`
 
-  const newTaskForm = new newTask()
+  const theListElement = new TaskList(todoList)
+
+  const newTaskForm = new newTask(theListElement)
   document.getElementById(`app`).appendChild(newTaskForm)  
 
-  const theListElement = new TaskList(todoList)
+  
   document.getElementById(`app`).appendChild(theListElement)
 
 

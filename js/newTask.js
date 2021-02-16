@@ -2,7 +2,7 @@
 export default class newTask extends HTMLElement {
 
 
-	constructor() {
+	constructor(theListElement) {
 		super() // Extend the properties and methods of an HTMLElement
     
 		// Shadow DOM (the element)
@@ -22,7 +22,8 @@ export default class newTask extends HTMLElement {
         eleBtn.textContent = 'Add'
         eleBtn.addEventListener(`click`, (event) => {
             event.preventDefault();
-			console.log(`submit clicked`)
+            console.log(`submit clicked`)
+            theListElement.addNewTask(eleInput.value)
 		})
         eleItem.appendChild(eleBtn)
 		
