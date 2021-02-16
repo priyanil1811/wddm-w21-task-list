@@ -1,4 +1,5 @@
 import {getJsonData} from './fetch.js'
+import newTask from './newTask.js'
 import TaskList from './TaskList.js'
 
 
@@ -12,6 +13,9 @@ window.addEventListener(`load`, (event) => {
   // Pass the array of data, build the UI
 
   // document.getElementById(`app`).innerHTML = `<task-list></task-list>`
+
+  const newTaskForm = new newTask()
+  document.getElementById(`app`).appendChild(newTaskForm)  
 
   const theListElement = new TaskList(todoList)
   document.getElementById(`app`).appendChild(theListElement)
